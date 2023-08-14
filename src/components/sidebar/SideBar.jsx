@@ -11,6 +11,7 @@ import {
 import { Link } from "react-router-dom"
 import { useTheme } from "@mui/styles"
 import useStyles from "./styles"
+import { useGetGenresQuery } from "../../services/tmdb"
 
 const redLogo =
   "https://fontmeme.com/permalink/210930/8531c658a743debe1e1aa1a2fc82006e.png"
@@ -31,6 +32,8 @@ const categories = [
 const SideBar = ({ setMobileOpen }) => {
   const theme = useTheme()
   const classes = useStyles()
+  const { data, isFetching } = useGetGenresQuery()
+  console.log(data)
   return (
     <>
       <Link to="/" className={classes.imageLink}>
@@ -45,10 +48,10 @@ const SideBar = ({ setMobileOpen }) => {
 
       <List>
         <ListSubheader>Categories</ListSubheader>
-          {categories.map(({ label, value }) => (
-            <Link key={value} className={classes.links} to="/">
-              <ListItem onClick={() => {}} button>
-                {/* <ListItemIcon>
+        {categories.map(({ label, value }) => (
+          <Link key={value} className={classes.links} to="/">
+            <ListItem onClick={() => {}} button>
+              {/* <ListItemIcon>
                   <img
                     src={redLogo}
                     alt=""
@@ -56,19 +59,23 @@ const SideBar = ({ setMobileOpen }) => {
                     height={30}
                   />
                 </ListItemIcon> */}
-                <ListItemText primary={label}></ListItemText>
-              </ListItem>
-            </Link>
-          ))}
-        
+              <ListItemText primary={label}></ListItemText>
+            </ListItem>
+          </Link>
+        ))}
       </List>
 
       <Divider />
 
       <List>
         <ListSubheader>Genres</ListSubheader>
-          {demoCategories.map(({ label, value }) => (
-            <Link key={value} className={classes.links} to="/">
+        {isFetching ? (
+          <Box display="flex" justifyContent="center">
+            <CircularProgress></CircularProgress>
+          </Box>
+        ) : (
+          data.genres.map(({ name, id }) => (
+            <Link key={name} className={classes.links} to="/">
               <ListItem onClick={() => {}} button>
                 {/* <ListItemIcon>
                   <img
@@ -78,11 +85,11 @@ const SideBar = ({ setMobileOpen }) => {
                     height={30}
                   />
                 </ListItemIcon> */}
-                <ListItemText primary={label}></ListItemText>
+                <ListItemText primary={name}></ListItemText>
               </ListItem>
             </Link>
-          ))}
-        
+          ))
+        )}
       </List>
     </>
   )
