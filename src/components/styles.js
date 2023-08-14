@@ -1,6 +1,6 @@
 import { makeStyles } from "@mui/styles"
 
-export default makeStyles(() => ({
+export default makeStyles((theme) => ({
   root: {
     display: "flex",
     height: "100%",
@@ -11,5 +11,8 @@ export default makeStyles(() => ({
   content: {
     flexGrow: "1",
     padding: "2em",
+    [theme.breakpoints.up("sm")]: {
+      marginLeft: "240px",
+    },
   },
 }))
