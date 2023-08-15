@@ -14,5 +14,6 @@ export default makeStyles((theme) => ({
     [theme.breakpoints.up("sm")]: {
       marginLeft: "240px",
     },
+    // width: "100%"
   },
 }))

@@ -1,0 +1,22 @@
+/* Styling the scrollbar */
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #cfcfcf;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #a5a5a5;
+}
+
+/* Styling the input type range thumb */
+input[type="range"]::-webkit-slider-thumb {
+  background-color: #a5a5a5;
+}
+
+/* Removing text decoration for all elements */
+* {
+  text-decoration: none;
+}

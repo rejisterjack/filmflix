@@ -1,4 +1,3 @@
-import React from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { selectGenre } from "../../features/currentGenre" // Adjust the import path
 import genreIcons from "../../assets/genres"
@@ -16,6 +15,7 @@ import { Link } from "react-router-dom"
 import { useTheme } from "@mui/styles"
 import useStyles from "./styles"
 import { useGetGenresQuery } from "../../services/tmdb"
+import { useEffect } from "react"
 
 const categories = [
   { label: 'Popular', value: 'popular' },
@@ -34,6 +34,12 @@ const SideBar = ({ setMobileOpen }) => {
   const classes = useStyles()
   const { data, isFetching } = useGetGenresQuery()
   const dispatch = useDispatch()
+  // const myData = data.genres.map((item)=>({name: item.name, id: item.id}))
+  // console.log(myData)
+
+  useEffect(() => {
+    setMobileOpen(false);
+  }, [genreName]);
   return (
     <>
       <Link to="/" className={classes.imageLink}>

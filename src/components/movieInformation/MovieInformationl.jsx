@@ -281,6 +281,7 @@ function MovieInformation() {
             movies={recommendations}
             numberOfMovies={12}
             movieLinkPrefix="/movie"
+            useRelativeLinks={true}
           />
         ) : (
           <Box>Sorry, nothing was found.</Box>
