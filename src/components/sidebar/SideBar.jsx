@@ -18,15 +18,19 @@ import { useGetGenresQuery } from "../../services/tmdb"
 import { useEffect } from "react"
 
 const categories = [
-  { label: 'Popular', value: 'popular' },
-  { label: 'Top Rated', value: 'top_rated' },
-  { label: 'Upcoming', value: 'upcoming' },
-];
+  { label: "Popular", value: "popular" },
+  { label: "Top Rated", value: "top_rated" },
+  { label: "Upcoming", value: "upcoming" },
+]
 
+// const redLogo =
+//   "https://fontmeme.com/permalink/210930/8531c658a743debe1e1aa1a2fc82006e.png"
+// const blueLogo =
+//   "https://fontmeme.com/permalink/210930/6854ae5c7f76597cf8680e48a2c8a50a.png"
 const redLogo =
-  "https://fontmeme.com/permalink/210930/8531c658a743debe1e1aa1a2fc82006e.png"
+  "https://res.cloudinary.com/dktfpedhu/image/upload/v1692735668/filmflix/filmflix-red_ywdxiz.png"
 const blueLogo =
-  "https://fontmeme.com/permalink/210930/6854ae5c7f76597cf8680e48a2c8a50a.png"
+  "https://res.cloudinary.com/dktfpedhu/image/upload/v1692735668/filmflix/fimlflix-blue_hpliku.png"
 
 const SideBar = ({ setMobileOpen }) => {
   const { genreName } = useSelector((state) => state.currentGenre)
@@ -38,8 +42,8 @@ const SideBar = ({ setMobileOpen }) => {
   // console.log(myData)
 
   useEffect(() => {
-    setMobileOpen(false);
-  }, [genreName]);
+    setMobileOpen(false)
+  }, [genreName])
   return (
     <>
       <Link to="/" className={classes.imageLink}>
