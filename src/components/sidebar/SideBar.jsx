@@ -23,9 +23,9 @@ const categories = [
   { label: "Upcoming", value: "upcoming" },
 ]
 
-const redLogo =
-  "https://res.cloudinary.com/dktfpedhu/image/upload/v1692735668/filmflix/filmflix-red_ywdxiz.png"
 const blueLogo =
+  "https://res.cloudinary.com/dktfpedhu/image/upload/v1692735668/filmflix/filmflix-red_ywdxiz.png"
+const redLogo =
   "https://res.cloudinary.com/dktfpedhu/image/upload/v1692735668/filmflix/fimlflix-blue_hpliku.png"
 
 const SideBar = ({ setMobileOpen }) => {
